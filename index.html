@@ -84,7 +84,7 @@
       }
 
       h1 {
-        font-family: Solitreo;
+        font-family: "Love Ya Like A Sister", cursive;
       }
 
       body {
@@ -254,7 +254,6 @@
 
     <script>
       const phrases = [
-        "No 🙉",
         "Are you sure?",
         "Really Sure😢",
         "I'll be very sad😕",
@@ -317,7 +316,7 @@
       }
 
       function getNoButtonText() {
-        if (noCount === 0) return phrases[0];
+        if (noCount === 0) return "No 🙉";
         return phrases[getRandomNumber()];
       }
 
@@ -334,7 +333,7 @@
                     <div class="card_container">
                       <div class="envelope"></div>
                       <div class="card">
-                        <h1 class="message">O vaso bar dil ho gaya<br/>Vasson bahr dil ho gaya<br/>Koi chalda na chara hai<br/>Tere bina na guzara hai</h1>
+                        <h1 class="message">Vasson bahr dil ho gaya<br/>Koi chalda na chara hai<br/>Tere bina na guzara hai<br/><br/>I Love You!</h1>
                         <div class="heart"></div>
                       </div>
                       <div class="cover"></div>
@@ -345,7 +344,7 @@
         } else {
           root.innerHTML = `
                     <img class='kiss' src="https://media1.tenor.com/m/al4a1pG1f8YAAAAC/jump-bear.gif" alt="bear with heart" />
-                    <div class='text'>Ms Onshi, Will you be my valentine 🌹?</div>
+                    <div class='text'>Dear Onshi, Will you marry me? 🌹</div>
                     <div class='both-Button'>
                         <button class='yesButton' style="padding: 5px;font-size: ${yesButtonSize}px; background-color: rgb(248, 229, 89)" onclick="handleYesClick()">
                             Yes 🙈
