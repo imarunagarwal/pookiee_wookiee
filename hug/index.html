@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Hug Day</title>
+    <link rel="icon" type="image/x-icon" href="./../assets/favicon.png">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+      /* Romantic Background */
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      }
+
+      .body-container {
+        overflow: hidden;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        font-family: "Dancing Script", cursive;
+        position: relative;
+      }
+      a {
+        &.go-back {
+          font-size: 1rem;
+          text-decoration: none;
+          color: white;
+          padding: 1rem;
+        }
+
+        &.go-back:visited {
+          color: white;
+        }
+      }
+
+      /* Floating ❤ Bubbles */
+      .heart-bubble {
+        position: absolute;
+        color: red;
+        font-size: 20px;
+        opacity: 0.7;
+        animation: floatHearts linear infinite;
+      }
+
+      @keyframes floatHearts {
+        0% {
+          transform: translateY(-10vh) translateX(0);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(50vh)
+            translateX(calc(-30px + 60px * var(--randomX)));
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(110vh)
+            translateX(calc(-50px + 100px * var(--randomX)));
+          opacity: 0;
+        }
+      }
+      #gif-container {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      /* Romantic Note */
+      .romantic-note {
+        font-size: 24px;
+        color: #d70040;
+        font-weight: bold;
+        margin-top: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating ❤ Bubbles -->
+    <script>
+      function createHearts() {
+        for (let i = 0; i < Math.floor(Math.random() * 11) + 20; i++) {
+          // 20-30 bubbles per 10 seconds
+          let heart = document.createElement("div");
+          heart.classList.add("heart-bubble");
+          heart.innerHTML = "❤";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.top = "-10vh"; // Starts from top
+          heart.style.fontSize = Math.random() * 15 + 15 + "px"; // Varying sizes
+          heart.style.animationDuration = Math.random() * 10 + 20 + "s"; // Slow downward floating
+          heart.style.opacity = Math.random() * 0.5 + 0.5; // Random opacity
+          heart.style.setProperty("--randomX", Math.random()); // Random movement effect
+          heart.style.animation = `floatHearts ${heart.style.animationDuration} linear infinite`;
+          document.body.appendChild(heart);
+          setTimeout(
+            () => heart.remove(),
+            parseFloat(heart.style.animationDuration) * 1000
+          );
+        }
+      }
+      setInterval(createHearts, 10000); // Creates bubbles every 10 seconds
+      createHearts(); // Start immediately
+    </script>
+    <a class="go-back" href="./../index.html">back</a>
+    <!-- GIF & Note -->
+    <div class="body-container">
+      <div id="gif-container">
+        <img src="https://iili.io/2mcpRqb.gif" alt="Hug GIF" width="200" />
+        <div class="romantic-note">
+          Happy Hug Day, my sweetheart. ❤<br />
+          Want to hug you a lot, but there's still a little amount of time for
+          that.<br />
+          Till then,Sending you my hug, My one and only 🫂❤
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
