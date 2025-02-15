@@ -94,6 +94,12 @@ body {
   top: 0vmin;
 }
 
+@media (max-width: 480px) {
+  .card_container {
+    left: 20%;
+  }
+}
+
 .envelope {
   position: relative;
   background: #f980a1;

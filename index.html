@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Lovers+Quarrel&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png" />
     <title>#OA_IN_LOVE</title>
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
@@ -48,6 +48,10 @@
       function handleYesClick() {
         yesPressed = true;
         render();
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
         const card = document.querySelector(".card_container");
         const song = document.getElementById("song");
 
@@ -85,13 +89,38 @@
         return phrases[getRandomNumber()];
       }
 
+      function updateCountdown() {
+        const eventDate = new Date("April 14, 2025 00:00:00").getTime();
+        const now = new Date().getTime();
+        const timeLeft = eventDate - now;
+
+        if (timeLeft <= 0) {
+          document.getElementById("countdown").innerHTML = "Event Started!";
+          return;
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById(
+          "countdown"
+        ).innerHTML = `${days} Days ${hours}h ${minutes}m ${seconds}s Remaining`;
+      }
+
       function render() {
         const root = document.getElementById("root");
 
         if (yesPressed) {
           root.innerHTML = `
                     <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" alt="bear-Kissing" />
-                    <div class='text'>Yayyy !!!</div>
+                    <div class='text'>Yayyy !!!
+                      <div id="countdown">Loading...</div>
+                      <div>& You will be mine!</div>
+                    </div>
                     <br/>
                     <br/>
                     <br/>
