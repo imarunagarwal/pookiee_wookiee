@@ -2,12 +2,12 @@
 #root {
   font-family: "Love Ya Like A Sister", cursive;
   max-width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: #de9dee;
+  background-color: #fee2e9;
 }
 
 body {
@@ -69,6 +69,12 @@ a {
   color: yellow;
   font-weight: 500;
   margin: 10px;
+
+  #countdown {
+    padding-top: 1rem;
+    font-size: 30px;
+    
+  }
 }
 
 * {
