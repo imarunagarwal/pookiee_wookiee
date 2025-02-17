@@ -15,7 +15,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <audio id="song" src="./assets/song.mp3"></audio>
+    <audio id="song" autoplay src="./assets/song.mp3"></audio>
 
     <script>
       const phrases = [
@@ -51,18 +51,6 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        const card = document.querySelector(".card_container");
-        const song = document.getElementById("song");
-
-        card.addEventListener("mouseover", () => {
-          song.play();
-        });
-
-        card.addEventListener("mouseleave", () => {
-          song.pause();
-          song.currentTime = 0; // Restart the song when hovered again
-        });
       }
 
       function handleNoClick() {
@@ -126,7 +114,7 @@
                     <div class="card_container">
                       <div class="envelope"></div>
                       <div class="card">
-                        <h1 class="message">Vasson bahr dil ho gaya<br/>Koi chalda na chara hai<br/>Tere bina na guzara hai<br/><br/>I Love You!</h1>
+                        <h1 class="message">Loving you feels like breathing—effortless, natural, and something I never want to stop.<br/>I Love You To the moon and back.</h1>
                         <div class="heart"></div>
                       </div>
                       <div class="cover"></div>
@@ -134,8 +122,6 @@
                       <div class="shadow"></div>
                     </div>
 
-                    <br/>
-                    <br/>
                     <br/>
                     <br/>
                     <br/>
@@ -170,7 +156,15 @@
       }
 
       render();
-      document.addEventListener("DOMContentLoaded", function (e) {
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.addEventListener(
+          "click",
+          function () {
+            document.getElementById("song").play();
+          },
+          { once: true }
+        );
+
         const queryString = window.location.search;
         let urlParams = new URLSearchParams(queryString);
         if (urlParams.get("i_agree") === "yes") {
