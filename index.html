@@ -48,7 +48,7 @@
       function handleYesClick() {
         yesPressed = true;
         render();
-        
+
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
@@ -170,6 +170,13 @@
       }
 
       render();
+      document.addEventListener("DOMContentLoaded", function (e) {
+        const queryString = window.location.search;
+        let urlParams = new URLSearchParams(queryString);
+        if (urlParams.get("i_agree") === "yes") {
+          handleYesClick();
+        }
+      });
     </script>
   </body>
 </html>
