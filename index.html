@@ -165,6 +165,22 @@
           { once: true }
         );
 
+        window.addEventListener("focus", function () {
+          document.getElementById("song").play();
+        });
+
+        window.addEventListener("blur", function () {
+          document.getElementById("song").pause();
+        });
+
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) {
+            document.getElementById("song").pause();
+          } else {
+            document.getElementById("song").play();
+          }
+        });
+
         const queryString = window.location.search;
         let urlParams = new URLSearchParams(queryString);
         if (urlParams.get("i_agree") === "yes") {
